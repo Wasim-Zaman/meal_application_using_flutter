@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Meal App",
       theme: themeData(),
-      home: const MealCategory(),
+      // home: const MealCategory(),
+      initialRoute: "/",
       routes: {
-        '/meal-categories': (context) => const MealCategory(),
-        '/category-recipe': (context) => CategoryRecipe(),
+        '/': (context) => const MealCategory(),
+        CategoryRecipe.screenName: (context) => CategoryRecipe(),
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CategoryRecipe extends StatelessWidget {
+  static const screenName = '/category-recipe-screen';
   /* The below code is for the material page route method */
 
   // final String id;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './screens/category_recipe_screen.dart';
+
 class CategoryItem extends StatelessWidget {
   final String categoryId;
   final String categoryTitle;
@@ -10,7 +12,7 @@ class CategoryItem extends StatelessWidget {
     /*Named page route*/
 
     Navigator.of(context).pushNamed(
-      '/category-recipe',
+      CategoryRecipe.screenName,
       arguments: {
         'id': categoryId,
         'title': categoryTitle,
