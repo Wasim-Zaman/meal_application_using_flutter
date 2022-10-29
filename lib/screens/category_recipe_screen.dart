@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../dummy_data.dart';
+import '../models/meal.dart';
+
 class CategoryRecipe extends StatelessWidget {
   static const screenName = '/category-recipe-screen';
   /* The below code is for the material page route method */
@@ -21,13 +24,20 @@ class CategoryRecipe extends StatelessWidget {
     final id = args['id'] as String;
     final title = args['title'] as String;
 
+    // Let's create a list of all the elements if it has the available category
+    final mealRecipe = DUMMY_MEALS.where((meal) {
+      return meal.categories.contains(id);
+    }).toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child:
-            Text('Recipe of the category whose id = $id would be listed here'),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return Card(child: Text(mealRecipe[index].title));
+        },
+        itemCount: mealRecipe.length,
       ),
     );
   }

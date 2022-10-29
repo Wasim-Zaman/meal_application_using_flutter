@@ -21,7 +21,7 @@ class MealCategory extends StatelessWidget {
         ),
         scrollDirection: Axis.vertical,
         padding: const EdgeInsets.all(25),
-        children: dummyCategories
+        children: DUMMY_CATEGORIES
             .map((mealItem) =>
                 CategoryItem(mealItem.id, mealItem.title, mealItem.color))
             .toList(),
