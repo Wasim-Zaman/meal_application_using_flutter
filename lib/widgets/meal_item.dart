@@ -5,6 +5,7 @@ import '../widgets/icon_plus_text.dart';
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final Complexity complexity;
@@ -12,6 +13,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   const MealItem({
     super.key,
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.affordability,
@@ -54,7 +56,10 @@ class MealItem extends StatelessWidget {
   // meal detail screen navigator
 
   void choosedMealNavigator(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetail.screenName);
+    Navigator.of(context).pushNamed(
+      MealDetail.screenName,
+      arguments: id,
+    );
   }
 
   @override

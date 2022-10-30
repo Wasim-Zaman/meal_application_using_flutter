@@ -5,6 +5,8 @@ import '../dummy_data.dart';
 
 class CategoryRecipe extends StatelessWidget {
   static const screenName = '/category-recipe-screen';
+
+  const CategoryRecipe({super.key});
   /* The below code is for the material page route method */
 
   // final String id;
@@ -37,6 +39,7 @@ class CategoryRecipe extends StatelessWidget {
         itemBuilder: (context, index) {
           // Creating a meal item
           return MealItem(
+            id: mealRecipe[index].id,
             imageUrl: mealRecipe[index].imageUrl,
             affordability: mealRecipe[index].affordability,
             complexity: mealRecipe[index].complexity,
