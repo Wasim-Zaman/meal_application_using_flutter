@@ -35,8 +35,13 @@ class CategoryRecipe extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
+          // Creating a meal item
           return MealItem(
             imageUrl: mealRecipe[index].imageUrl,
+            affordability: mealRecipe[index].affordability,
+            complexity: mealRecipe[index].complexity,
+            duration: mealRecipe[index].duration,
+            title: mealRecipe[index].title,
           );
         },
         itemCount: mealRecipe.length,
