@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './screens/category_recipe_screen.dart';
-import './screens/meal_categories_screen.dart';
-import './screens/meal_detail_screen.dart';
-import './models/theme_data.dart';
+import '../screens/category_recipe_screen.dart';
+import '../screens/meal_categories_screen.dart';
+import '../screens/meal_detail_screen.dart';
+import '../themes/theme_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         '/': (context) => const MealCategory(),
-        CategoryRecipe.screenName: (context) => CategoryRecipe(),
-        MealDetail.screenName: (context) => MealDetail()
+        CategoryRecipe.screenName: (context) => const CategoryRecipe(),
+        MealDetail.screenName: (context) => const MealDetail(),
       },
     );
   }

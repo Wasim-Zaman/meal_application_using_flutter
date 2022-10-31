@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/meal_item.dart';
-import '../dummy_data.dart';
+import '../models/dummy_data.dart';
 
 class CategoryRecipe extends StatelessWidget {
   static const screenName = '/category-recipe-screen';
