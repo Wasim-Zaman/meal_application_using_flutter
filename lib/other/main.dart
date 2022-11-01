@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/category_recipe_screen.dart';
 import '../screens/meal_categories_screen.dart';
+import '../screens/tabs_screen.dart';
 import '../screens/meal_detail_screen.dart';
 import '../themes/theme_data.dart';
 
@@ -21,9 +22,24 @@ class MyApp extends StatelessWidget {
       // home: const MealCategory(),
       initialRoute: "/",
       routes: {
-        '/': (context) => const MealCategory(),
+        '/': (context) => const TabScreen(),
         CategoryRecipe.screenName: (context) => const CategoryRecipe(),
         MealDetail.screenName: (context) => const MealDetail(),
+      },
+      onGenerateRoute: (settings) {
+        // if (settings.name == '/'){
+
+        // }
+        // else if (settings.name == '/abc'){
+
+        // }
+      },
+
+      // If we enter to an unknwon screen, then we should handle that case
+      onUnknownRoute: (settings) {
+        MaterialPageRoute(
+          builder: (context) => const MealCategory(),
+        );
       },
     );
   }

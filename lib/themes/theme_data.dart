@@ -3,25 +3,29 @@ import 'package:flutter/material.dart';
 ThemeData themeData() {
   return ThemeData(
     colorScheme: ColorScheme.fromSwatch(
-      primarySwatch: Colors.green,
+      primarySwatch: Colors.teal,
     ).copyWith(
-      secondary: Colors.pink,
+      secondary: Colors.yellow,
     ),
+    // primaryColor: const Color.fromRGBO(37, 27, 55, 1),
+    // accentColor: const Color.fromRGBO(255, 202, 202, 1),
     textTheme: const TextTheme(
       // heading 6
       headline6: TextStyle(
         fontFamily: "Raleway",
-        fontSize: 23,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
+        // decorationColor: Colors.white,
         color: Colors.white,
       ),
 
-      // heading 5
+      //heading5
       headline5: TextStyle(
         fontFamily: "Raleway",
-        fontSize: 16,
+        fontSize: 36,
         fontWeight: FontWeight.bold,
         color: Colors.black,
+        inherit: true,
       ),
     ),
   );
