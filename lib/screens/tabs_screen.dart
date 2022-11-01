@@ -17,8 +17,10 @@ class _TabScreenState extends State<TabScreen> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Muhaiman'),
+          title: const Text('Meal App'),
           bottom: const TabBar(
+            // isScrollable: true,
+
             tabs: [
               Tab(
                 icon: Icon(
