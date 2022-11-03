@@ -37,6 +37,8 @@ class MyApp extends StatelessWidget {
 
       // If we enter to an unknwon screen, then we should handle that case
       onUnknownRoute: (settings) {
+        // We user encounters unknown page,
+        // He should be redirected to Meal Category page
         MaterialPageRoute(
           builder: (context) => const MealCategory(),
         );

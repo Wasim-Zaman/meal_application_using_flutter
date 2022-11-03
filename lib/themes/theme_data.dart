@@ -5,7 +5,7 @@ ThemeData themeData() {
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: Colors.teal,
     ).copyWith(
-      secondary: Colors.yellow,
+      secondary: Colors.grey,
     ),
     // primaryColor: const Color.fromRGBO(37, 27, 55, 1),
     // accentColor: const Color.fromRGBO(255, 202, 202, 1),
