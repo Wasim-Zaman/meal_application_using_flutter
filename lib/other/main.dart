@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/category_recipe_screen.dart';
 import '../screens/meal_categories_screen.dart';
-import '../screens/tabs_screen.dart';
+import '../screens/tabs_screen_bottom.dart';
 import '../screens/meal_detail_screen.dart';
 import '../themes/theme_data.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       // home: const MealCategory(),
       initialRoute: "/",
       routes: {
-        '/': (context) => const TabScreen(),
+        '/': (context) => const TabsScreenBottom(),
         CategoryRecipe.screenName: (context) => const CategoryRecipe(),
         MealDetail.screenName: (context) => const MealDetail(),
       },

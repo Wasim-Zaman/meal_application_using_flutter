@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 ThemeData themeData() {
   return ThemeData(
-    colorScheme: ColorScheme.fromSwatch(
-      primarySwatch: Colors.teal,
-    ).copyWith(
-      secondary: Colors.grey,
-    ),
-    // primaryColor: const Color.fromRGBO(37, 27, 55, 1),
-    // accentColor: const Color.fromRGBO(255, 202, 202, 1),
+    // colorScheme: ColorScheme.fromSwatch(
+    //   primarySwatch: Colors.teal,
+    // ).copyWith(
+    //   secondary: Colors.grey,
+    // ),
+    primaryColor: const Color.fromRGBO(13, 36, 123, 1),
+    accentColor: const Color.fromRGBO(255, 136, 202, 1),
     textTheme: const TextTheme(
       // heading 6
       headline6: TextStyle(
