@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './favorites_screen.dart';
 import './meal_categories_screen.dart';
+import '../other/my_drawer.dart';
 
 class TabsScreenBottom extends StatefulWidget {
   const TabsScreenBottom({super.key});
@@ -34,6 +35,7 @@ class _TabsScreenBottomState extends State<TabsScreenBottom> {
         title: Text(_pages[_selectedIndex]['title']),
         backgroundColor: Theme.of(context).primaryColor,
       ),
+      drawer: MyDrawer(),
       body: _pages[_selectedIndex]['page'],
 
       // This is what we need for the bottom bar

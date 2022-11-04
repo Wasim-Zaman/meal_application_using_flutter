@@ -4,6 +4,7 @@ import '../screens/category_recipe_screen.dart';
 import '../screens/meal_categories_screen.dart';
 import '../screens/tabs_screen_bottom.dart';
 import '../screens/meal_detail_screen.dart';
+import '../screens/filters_screen.dart';
 import '../themes/theme_data.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const TabsScreenBottom(),
         CategoryRecipe.screenName: (context) => const CategoryRecipe(),
         MealDetail.screenName: (context) => const MealDetail(),
+        FiltersScreen.pageName: (context) => FiltersScreen(),
       },
       onGenerateRoute: (settings) {
         // if (settings.name == '/'){
