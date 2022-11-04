@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../widgets/meal_item.dart';
 import '../models/dummy_data.dart';
+import '../models/meal.dart';
 
-class CategoryRecipe extends StatelessWidget {
+class CategoryRecipe extends StatefulWidget {
   static const screenName = '/category-recipe-screen';
-
-  const CategoryRecipe({super.key});
   /* The below code is for the material page route method */
 
   // final String id;
@@ -17,37 +16,68 @@ class CategoryRecipe extends StatelessWidget {
   //   required this.title,
   // });
 
+  const CategoryRecipe({super.key});
+
+  @override
+  State<CategoryRecipe> createState() => _CategoryRecipeState();
+}
+
+class _CategoryRecipeState extends State<CategoryRecipe> {
+  String? title;
+  // Let's create a list of all the elements if it has the available category
+  List<Meal>? displayedMeal;
+  var isFirstTime = true;
+
+  @override
+  void didChangeDependencies() {
+    if (isFirstTime) {
+      final args =
+          ModalRoute.of(context)?.settings.arguments as Map<String, Object>;
+
+      final id = args['id'] as String;
+      title = args['title'] as String;
+
+      displayedMeal = DUMMY_MEALS.where((meal) {
+        return meal.categories.contains(id);
+      }).toList();
+      isFirstTime = false;
+    }
+
+    super.didChangeDependencies();
+  }
+
+  void _removeMeal(String mealId) {
+    setState(() {
+      displayedMeal!.removeWhere((meal) {
+        return meal.id == mealId;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     /* Getting the arguments from the named page routes*/
-    final args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, Object>;
-
-    final id = args['id'] as String;
-    final title = args['title'] as String;
-
-    // Let's create a list of all the elements if it has the available category
-    final mealRecipe = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(id);
-    }).toList();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title!),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
           // Creating a meal item
           return MealItem(
-            id: mealRecipe[index].id,
-            imageUrl: mealRecipe[index].imageUrl,
-            affordability: mealRecipe[index].affordability,
-            complexity: mealRecipe[index].complexity,
-            duration: mealRecipe[index].duration,
-            title: mealRecipe[index].title,
+            id: displayedMeal![index].id,
+            imageUrl: displayedMeal![index].imageUrl,
+            affordability: displayedMeal![index].affordability,
+            complexity: displayedMeal![index].complexity,
+            duration: displayedMeal![index].duration,
+            title: displayedMeal![index].title,
+            // remove item
+            removeItem: _removeMeal,
           );
         },
-        itemCount: mealRecipe.length,
+        itemCount: displayedMeal!.length,
       ),
     );
   }

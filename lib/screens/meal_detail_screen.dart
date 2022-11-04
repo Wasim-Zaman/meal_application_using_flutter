@@ -53,9 +53,11 @@ class MealDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-        selectedMeal.title,
-      )),
+        title: Text(
+          selectedMeal.title,
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -116,6 +118,12 @@ class MealDetail extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pop(mealId);
+        },
+        child: const Icon(Icons.delete),
       ),
     );
   }
