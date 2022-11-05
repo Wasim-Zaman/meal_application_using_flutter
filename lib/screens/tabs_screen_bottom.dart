@@ -56,11 +56,16 @@ class _TabsScreenBottomState extends State<TabsScreenBottom> {
 
         // Some styling to the tabs
         backgroundColor: Theme.of(context).primaryColor,
+        showUnselectedLabels: true,
         unselectedItemColor: Colors.black,
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).primaryColor,
         iconSize: 30,
+
+        // Setting the type
         type: BottomNavigationBarType.shifting,
+
+        // Feeding the items (two items into the BottomNavigationBar)
         items: const [
           // this property need the BottomNavigationBarItem as element
           BottomNavigationBarItem(

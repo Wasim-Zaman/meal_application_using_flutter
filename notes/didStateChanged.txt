@@ -1,0 +1,11 @@
+This will be triggered essentially whenever the references of the state change,
+which also means it will be called when the widget that belongs to the 
+state has been fully initialized and we can tap into context,
+this will still run before build runs.
+
+So in here, I can now put my code which I had in initState, 
+initState would have been great if we wouldn't have required
+ to use modal route of context in here,
+
+so any of context stuff which you need to do in here will 
+unfortunately not work but in didChangeDependencies, it should work.
