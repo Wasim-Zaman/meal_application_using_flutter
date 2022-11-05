@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import './favorites_screen.dart';
 import './meal_categories_screen.dart';
 import '../other/my_drawer.dart';
+import '../models/meal.dart';
 
 class TabsScreenBottom extends StatefulWidget {
-  const TabsScreenBottom({super.key});
+  final List<Meal> favoriteMeal;
+  const TabsScreenBottom(this.favoriteMeal, {super.key});
 
   @override
   State<TabsScreenBottom> createState() => _TabsScreenBottomState();
@@ -17,29 +19,35 @@ class _TabsScreenBottomState extends State<TabsScreenBottom> {
   int _selectedIndex = 0;
 
   // Instead of that we also need the list of the pages.
-  final List<Map<String, dynamic>> _pages = const [
-    // As we will be having two tabs,
-    // thats is why we need two widgets here
+  List<Map<String, dynamic>>? _pages;
 
-    {
-      "page": MealCategory(),
-      "title": "Categories",
-    },
-    {
-      "page": FavoritesScreen(),
-      "title": "Favorites",
-    },
-  ];
+  @override
+  void initState() {
+    _pages = [
+      // As we will be having two tabs,
+      // thats is why we need two widgets here
+
+      {
+        "page": const MealCategory(),
+        "title": "Categories",
+      },
+      {
+        "page": FavoritesScreen(widget.favoriteMeal),
+        "title": "Favorites",
+      },
+    ];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_pages[_selectedIndex]['title']),
+        title: Text(_pages![_selectedIndex]['title']),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       drawer: const MyDrawer(),
-      body: _pages[_selectedIndex]['page'],
+      body: _pages![_selectedIndex]['page'],
 
       // For showing tabs at the bottom of the screen,
       // Scaffold has built-in property called bottomNavigationBar

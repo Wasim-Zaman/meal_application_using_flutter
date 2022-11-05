@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
   };
 
   List<Meal> _availableMeal = DUMMY_MEALS;
+  List<Meal> _favoriteMeal = [];
 
   void _updateFilters(Map<String, bool> filteredMeal) {
     setState(() {
@@ -54,6 +55,35 @@ class _MyAppState extends State<MyApp> {
     }).toList();
   }
 
+  // create a logic for making meal favorite
+  void _toggleFavoriteMeal(String mealId) {
+    // we want an index of the meal if it is already favorite
+    // so that we can delete it from the favortie list
+
+    // otherwise if meal is not favorite already, we can add
+    // into the favorite list
+
+    final mealIndex =
+        _favoriteMeal.indexWhere((element) => element.id == mealId);
+
+    if (mealIndex >= 0) {
+      // if the meal is already favorite
+      setState(() {
+        _favoriteMeal.removeAt(mealIndex);
+      });
+    } else {
+      // if meal is not favorite, then add it into the favorite list
+      setState(() {
+        _favoriteMeal
+            .add(DUMMY_MEALS.firstWhere((element) => element.id == mealId));
+      });
+    }
+  }
+
+  bool _isFavorite(String mealId) {
+    return _favoriteMeal.any((element) => element.id == mealId);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -63,9 +93,10 @@ class _MyAppState extends State<MyApp> {
       // home: const MealCategory(),
       initialRoute: "/",
       routes: {
-        '/': (context) => const TabsScreenBottom(),
+        '/': (context) => TabsScreenBottom(_favoriteMeal),
         CategoryRecipe.screenName: (context) => CategoryRecipe(_availableMeal),
-        MealDetail.screenName: (context) => const MealDetail(),
+        MealDetail.screenName: (context) =>
+            MealDetail(_toggleFavoriteMeal, _isFavorite),
         FiltersScreen.pageName: (context) =>
             FiltersScreen(_filter, _updateFilters),
       },

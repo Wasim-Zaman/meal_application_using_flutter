@@ -46,13 +46,13 @@ class _CategoryRecipeState extends State<CategoryRecipe> {
     super.didChangeDependencies();
   }
 
-  void _removeMeal(String mealId) {
-    setState(() {
-      displayedMeal!.removeWhere((meal) {
-        return meal.id == mealId;
-      });
-    });
-  }
+  // void _removeMeal(String mealId) {
+  //   setState(() {
+  //     displayedMeal!.removeWhere((meal) {
+  //       return meal.id == mealId;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class _CategoryRecipeState extends State<CategoryRecipe> {
             duration: displayedMeal![index].duration,
             title: displayedMeal![index].title,
             // remove item
-            removeItem: _removeMeal,
+            // removeItem: _removeMeal,
           );
         },
         itemCount: displayedMeal!.length,

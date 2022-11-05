@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import '../screens/meal_categories_screen.dart';
 import '../screens/favorites_screen.dart';
 
+import '../models/meal.dart';
+
 class TabScreen extends StatelessWidget {
-  const TabScreen({super.key});
+  final List<Meal> favoriteMeal;
+  const TabScreen(this.favoriteMeal, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +27,17 @@ class TabScreen extends StatelessWidget {
               Tab(
                 icon: Icon(
                   Icons.favorite,
-                  color: Colors.red,
+                  color: Color.fromARGB(255, 3, 3, 3),
                 ),
                 text: "Favorite",
               ),
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            MealCategory(),
-            FavoritesScreen(),
+            const MealCategory(),
+            FavoritesScreen(favoriteMeal),
           ],
         ),
       ),
