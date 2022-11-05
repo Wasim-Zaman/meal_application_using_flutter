@@ -6,7 +6,8 @@ class CategoryItem extends StatelessWidget {
   final String categoryId;
   final String categoryTitle;
   final Color color;
-  const CategoryItem(this.categoryId, this.categoryTitle, this.color);
+  const CategoryItem(this.categoryId, this.categoryTitle, this.color,
+      {super.key});
 
   void pageTransition(BuildContext context) {
     /*Named page route*/

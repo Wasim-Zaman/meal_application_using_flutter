@@ -26,9 +26,11 @@ class MyApp extends StatelessWidget {
         '/': (context) => const TabsScreenBottom(),
         CategoryRecipe.screenName: (context) => const CategoryRecipe(),
         MealDetail.screenName: (context) => const MealDetail(),
-        FiltersScreen.pageName: (context) => FiltersScreen(),
+        FiltersScreen.pageName: (context) => const FiltersScreen(),
       },
       onGenerateRoute: (settings) {
+        return null;
+
         // if (settings.name == '/'){
 
         // }
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
       onUnknownRoute: (settings) {
         // We user encounters unknown page,
         // He should be redirected to Meal Category page
-        MaterialPageRoute(
+        return MaterialPageRoute(
           builder: (context) => const MealCategory(),
         );
       },

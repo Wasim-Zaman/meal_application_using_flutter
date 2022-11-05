@@ -5,6 +5,8 @@ import '../other/my_drawer.dart';
 class FiltersScreen extends StatelessWidget {
   static const pageName = '/filters-page';
 
+  const FiltersScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +15,7 @@ class FiltersScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       drawer: const MyDrawer(),
-      body: Center(
+      body: const Center(
         child: Text("some filters contents"),
       ),
     );
